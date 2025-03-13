@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para Yeremy</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FFDADA;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 650px;
+            height: 550px;
+            cursor: pointer;
+        }
+        .envelope {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #FF6B6B, #FF3B3B);
+            border-radius: 10px;
+            border: 3px solid #D93A3A;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: clip-path 2s ease-in-out;
+        }
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, #FF6B6B, #FF3B3B);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+        .letter {
+            position: absolute;
+            width: 99%;
+            height: 110%;
+            background: white;
+            border-radius: 5px;
+            top: 50%;
+            left: 2.5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
+            padding: 50px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 5;
+        }
+        .message {
+            text-align: justify;
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+        .heart {
+            color: red;
+            font-size: 34px;
+            margin-top: 20px;
+        }
+        .survey-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #FF6B6B;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onclick="openLetter()">
+        <div class="envelope" id="envelope"></div>
+        <div class="letter" id="letter">
+            <p class="message">💌 Hoy quiero decirte que ❤️ a pesar de todo lo que me dijiste, quiero que sepas que para mí eres una persona muy especial 🌟 y que para mí es mucho más importante tenerte en mi vida que alejarme de ti, porque por más que lo intenté, mi corazón 💖 no quiere hacerlo. No vale la pena perder a una persona tan especial como tú. Vale más la pena luchar 🏆 por algo tan lindo 💕 y tan especial como lo eres tú, y no solo por eso, sino por las bonitas cosas que vivimos juntos. No quisiera que esto quedara en un simple "no se pudo", sino que me gustaría decir "lo logramos juntos" 🤝, porque ambos luchamos por ello. Por más problemas que tuvimos, siempre luchamos para arreglarlo y nunca terminar esta historia tan bonita 📖 que tenemos. Con esto, quiero que sepas que no te dejaré sola en ningún momento, porque no te quiero perder 😢. ya que si te dejo sola, eso demostraría que mi amor no era realmente verdadero. Sabiendo todo lo anterior, me encantaría saber si tú también quieres luchar 💪 e intentar que todo vuelva a ser como antes. Tal vez no sea de un día para otro, pero quiero saber si estás dispuesta a darlo todo para que lo nuestro funcione. No quiero que sea un simple "lo intentamos" o "no se pudo", sino que sea "luchamos por esto juntos". Por más problemas que tuvimos, nunca nos dejamos derrumbar por ellos. Te amo, Yeremy 💕. Espero tu respuesta.. ❤️</p>
+            <p class="heart">💌</p>
+            <button class="survey-button" onclick="showSurvey()">Responder Encuesta</button>
+        </div>
+    </div>
+
+    <script>
+        function openLetter() {
+            setTimeout(() => {
+                document.getElementById('envelope').style.clipPath = 'polygon(0 0, 100% 0, 100% 50%, 0 50%)';
+                setTimeout(() => {
+                    document.getElementById('letter').style.opacity = '1';
+                    document.getElementById('letter').style.transform = 'translateY(-100px)';
+                }, 1000);
+            }, 2000);
+        }
+        
+        function showSurvey() {
+            let response = confirm("¿Quieres luchar por esto juntos? 💖");
+            if (response) {
+                alert("Me alegra saberlo! ❤️ ¡Juntos podemos con todo! 💪");
+            } else {
+                alert("Lo entiendo 😢, pero recuerda que siempre estaré para ti. 💕");
+            }
+        }
+    </script>
+</body>
+</html>
